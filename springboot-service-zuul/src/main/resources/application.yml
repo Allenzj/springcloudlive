@@ -1,0 +1,32 @@
+
+server:
+  port: 8087
+
+spring:
+  application:
+    name: bm-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://tyrion:123456@localhost:8001/eureka/ # eureka服务中心
+zuul:
+  routes:
+    zuul-a:
+      path: /zuul-a/**
+      serviceId: bm-feign-consumer
+    zuul-b:
+      path: /zuul-b/**
+      serviceId: bm-ribbon-consumer
+  host:
+    connect-timeout-millis: 60000 #Ĭ默认2s  api网关超时时间设置
+    socket-timeout-millis: 60000 # Ĭ默认10s
+ribbon:  # ribbon超时时间要不大于zuul
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+hystrix:  # Hystrix超时时间要不大于zuul
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 60000

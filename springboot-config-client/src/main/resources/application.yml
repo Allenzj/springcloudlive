@@ -1,0 +1,6 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh  # 默认开启了安全认证，将refresh方法暴露出来
+

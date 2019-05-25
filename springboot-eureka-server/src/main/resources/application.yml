@@ -1,0 +1,39 @@
+info:
+  name: eureka server
+  contact: 北明软件,负责人：tyrion，联系电话：
+server:
+  port: 8001
+spring:
+  application:
+    name: bm-eureka-server  #项目名称
+  security:
+    user:
+      name: tyrion
+      password: 123456
+eureka:
+  instance:
+    hostname: localhost # 服务注册中心实例的主机名
+  client:
+    register-with-eureka: false # 是否向服务注册中心注册自己,默认true；默认情况下 Server也是一个 Client
+    fetch-registry: false       # 是否从Eureka Server获取注册信息，默认为true。非集群可以写成false
+    service-url:
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #关闭自我保护机制，解释：15分钟内超过85%的节点都没有正常的心跳，那么Eureka就认为客户端与注册中心出现了网络故障-->不再移除没心跳的服务，集群eureka不会同步，网络稳定后才会同步
+    eviction-interval-timer-in-ms: 5 #驱逐下线时间5s，默认60s
+
+# 健康检查  info、beans、env .....
+management:
+  server:
+    port: 11111
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+
+

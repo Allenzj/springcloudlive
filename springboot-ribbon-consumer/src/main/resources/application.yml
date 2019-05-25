@@ -1,0 +1,16 @@
+
+server:
+  port: 8085
+
+spring:
+  application:
+    name: bm-ribbon-consumer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://tyrion:123456@localhost:8001/eureka/    # eureka客户端
+
+# 修改负载均衡策略
+bm-eureka-client:  # 对应要做的微服务名
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 修改为随机

@@ -1,0 +1,26 @@
+server:
+  port: 8889
+spring:
+  application:
+    name: bm-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Allenzj/live-config.git #
+          search-paths:   #
+          username:             #公共仓库不需要用户名密码
+          password:
+          label: master  #git 分支
+
+# 读取配置的方式
+# /{application}/{profile}[/{label}]
+# /{application}-{profile}.yml
+# /{label}/{application}-{profile}.yml
+# /{application}-{profile}.properties
+# /{label}/{application}-{profile}.properties
+
+eureka:   # 使用client就要注册eureka客服端
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/ # eureka客户端

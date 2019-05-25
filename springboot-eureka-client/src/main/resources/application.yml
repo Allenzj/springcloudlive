@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: bm-eureka-client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://tyrion:123456@localhost:8001/eureka/ # eureka调用地址
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 心跳间隔，默认30s向服务端报告状态
+    lease-expiration-duration-in-seconds: 6 #最后一次心跳，6s后就下线，默认30s
+    prefer-ip-address: true #默认false，显示ip地址而不是hostname

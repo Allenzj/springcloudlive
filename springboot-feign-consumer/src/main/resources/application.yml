@@ -1,0 +1,22 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: bm-feign-consumer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://tyrion:123456@localhost:8001/eureka/  # eureka feign调用
+
+# 修改负载均衡策略
+bm-eureka-client:  # 对应要做的微服务名
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 修改为随机
+
+# 当对特定的服务的调用的不可用达到一个阀值（Hystrix 是5秒20次） 断路器将会被打开
+feign:
+  hystrix:
+    enabled: true # Feign是自带断路器的,默认false
+
+
