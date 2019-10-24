@@ -11,11 +11,5 @@ gen
 logs
 logs/*.log
 /springcloud-nacos-consumer/mvnw
-springcloud-eureka-client/pdf/
-springcloud-eureka-client/src/main/java/com/bmsoft/controller/FileUtil.java
-springcloud-eureka-client/word/
-springcloud-nacos-consumer/
-springcloud-nacos-discovery/src/
 springcloud-nacos-discovery/target/
-springcloud-service-zuul/src/main/java/com/bmsoft/controller/
 /springcloud-nacos-consumer/mvnw.cmd
