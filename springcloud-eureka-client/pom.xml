@@ -42,6 +42,21 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>pdf</directory>
+        <includes>
+          <include>**/*.pdf</include>
+        </includes>
+        <targetPath>pdf</targetPath>
+      </resource>
+      <resource>
+        <directory>src/java/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 
 </project>

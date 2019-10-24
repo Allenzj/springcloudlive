@@ -29,6 +29,7 @@
     <module>springcloud-service-zuul</module>
     <module>springcloud-config-server</module>
     <module>springcloud-config-client</module>
+    <module>springcloud-nacos-config</module>
   </modules>
 
 
